@@ -42,6 +42,7 @@ RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebu
     7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
     rm -rf /tmp/libclang.7z
 ENV LLVM_INSTALL_DIR="/root/libclang_release_39/libclang"
+ENV CLANG_INSTALL_DIR="/root/libclang_release_39/libclang"
 
 # Pip requirements
 RUN /usr/bin/pip install -U pip wheel && \
