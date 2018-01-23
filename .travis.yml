@@ -8,6 +8,7 @@ matrix:
         - CI_PY=/usr/bin/python
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -22,6 +23,7 @@ matrix:
         - CI_PY=/usr/bin/python3.5
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -36,6 +38,7 @@ matrix:
         - CI_PY=/usr/bin/python3.6
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -50,6 +53,7 @@ matrix:
         - CI_PY=/usr/bin/python
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -64,6 +68,7 @@ matrix:
         - CI_PY=/usr/bin/python3.5
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -78,6 +83,7 @@ matrix:
         - CI_PY=/usr/bin/python3.6
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -111,6 +117,7 @@ before_script:
   - ${DOCKER_RUN} ${CI_CMAKE} --version
   - ${DOCKER_RUN} clang --version
   - ${DOCKER_RUN} ${CI_QMAKE} --version
+  - ${DOCKER_RUN} ${CI_OPENSSL} version
 
 
 script:
