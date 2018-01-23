@@ -102,6 +102,9 @@ before_script:
   # Show docker image info
   - docker images
 
+  # Show LLVM_INSTALL_DIR value
+  - echo $LLVM_INSTALL_DIR
+
   # Summary
   - git --version
   - ${DOCKER_RUN} ${CI_PY} --version
