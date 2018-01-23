@@ -54,7 +54,7 @@ matrix:
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
         - CI_OPENSSL=/usr/bin/openssl
-        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
       dist: trusty
@@ -69,7 +69,7 @@ matrix:
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
         - CI_OPENSSL=/usr/bin/openssl
-        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
       dist: trusty
@@ -84,7 +84,7 @@ matrix:
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
         - CI_OPENSSL=/usr/bin/openssl
-        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
       dist: trusty
