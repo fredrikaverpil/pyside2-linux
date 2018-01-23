@@ -19,8 +19,8 @@ RUN yum install -y epel-release && \
 WORKDIR /workdir
 
 # Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
-ENV CC=/usr/bin/clang
-ENV CXX=/usr/bin/clang++
+ENV CC="/usr/bin/clang"
+ENV CXX="/usr/bin/clang++"
 
 ADD qt-installer-5.6.3-noninteractive.qs /tmp
 ADD qt-installer-5.9.3-noninteractive.qs /tmp
@@ -31,18 +31,18 @@ RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.6/5.6.3
     /tmp/qt-installer.run --script /tmp/qt-installer-5.6.3-noninteractive.qs -platform minimal && \
     rm -rf /tmp/qt-installer.run
 
-# # Qt 5.9
-# RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3/qt-opensource-linux-x64-5.9.3.run && \
-#     chmod +x /tmp/*.run && \
-#     /tmp/qt-installer.run --script /tmp/qt-installer-5.9.3-noninteractive.qs -platform minimal && \
-#     rm -rf /tmp/qt-installer.run
+# Qt 5.9
+RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3/qt-opensource-linux-x64-5.9.3.run && \
+    chmod +x /tmp/*.run && \
+    /tmp/qt-installer.run --script /tmp/qt-installer-5.9.3-noninteractive.qs -platform minimal && \
+    rm -rf /tmp/qt-installer.run
 
-# # Libclang (Qt 5.9 only)
-# RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_39-linux-Rhel7.2-gcc5.3-x86_64.7z && \
-#     7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
-#     rm -rf /tmp/libclang.7z
-# ENV LLVM_INSTALL_DIR=${HOME}/libclang_release_39/libclang
+# Libclang (Qt 5.9 only)
+RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_39-linux-Rhel7.2-gcc5.3-x86_64.7z && \
+    7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
+    rm -rf /tmp/libclang.7z
+ENV LLVM_INSTALL_DIR="${HOME}/libclang_release_39/libclang"
 
-# RUN /usr/bin/pip install wheel && \
-#     /usr/bin/pip3.5 install wheel && \
-#     /usr/bin/pip3.6 install wheel
+RUN /usr/bin/pip install wheel && \
+    /usr/bin/pip3.5 install wheel && \
+    /usr/bin/pip3.6 install wheel
