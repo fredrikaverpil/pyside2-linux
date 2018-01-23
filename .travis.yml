@@ -1,0 +1,144 @@
+matrix:
+  include:
+
+    - env:
+        - NAME="Python 2.7, Qt 5.6"
+        - PYSIDE_BRANCH=5.6
+        - QT_VER=5.6.3
+        - CI_PY=/usr/bin/python
+        - CI_CMAKE=/usr/bin/cmake3
+        - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
+        - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
+      os: linux
+      dist: trusty
+      services:
+        - docker
+
+    - env:
+        - NAME="Python 3.5, Qt 5.6"
+        - PYSIDE_BRANCH=5.6
+        - QT_VER=5.6.3
+        - CI_PY=/usr/bin/python3.5
+        - CI_CMAKE=/usr/bin/cmake3
+        - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
+        - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
+      os: linux
+      dist: trusty
+      services:
+        - docker
+
+    - env:
+        - NAME="Python 3.6, Qt 5.6"
+        - PYSIDE_BRANCH=5.6
+        - QT_VER=5.6.3
+        - CI_PY=/usr/bin/python3.6
+        - CI_CMAKE=/usr/bin/cmake3
+        - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
+        - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
+      os: linux
+      dist: trusty
+      services:
+        - docker
+
+    - env:
+        - NAME="Python 2.7, Qt 5.9"
+        - PYSIDE_BRANCH=5.9
+        - QT_VER=5.9.3
+        - CI_PY=/usr/bin/python
+        - CI_CMAKE=/usr/bin/cmake3
+        - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
+        - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
+      os: linux
+      dist: trusty
+      services:
+        - docker
+
+    - env:
+        - NAME="Python 3.5, Qt 5.9"
+        - PYSIDE_BRANCH=5.9
+        - QT_VER=5.9.3
+        - CI_PY=/usr/bin/python3.5
+        - CI_CMAKE=/usr/bin/cmake3
+        - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
+        - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
+      os: linux
+      dist: trusty
+      services:
+        - docker
+
+    - env:
+        - NAME="Python 3.6, Qt 5.9"
+        - PYSIDE_BRANCH=5.9
+        - QT_VER=5.9.3
+        - CI_PY=/usr/bin/python3.6
+        - CI_CMAKE=/usr/bin/cmake3
+        - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7
+        - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
+      os: linux
+      dist: trusty
+      services:
+        - docker
+
+
+before_install:
+  - pwd
+
+
+install:
+  - docker pull ${DOCKER_IMAGE}
+  - git clone --recursive --branch ${PYSIDE_BRANCH} https://code.qt.io/pyside/pyside-setup.git
+
+
+before_script:
+  # Show which commit is being used
+  - git --git-dir pyside-setup/.git log -n 1
+
+  # Summary
+  - git --version
+  - ${DOCKER_RUN} ${CI_PY} --version
+  - ${DOCKER_RUN} ${CI_CMAKE} --version
+  - ${DOCKER_RUN} clang --version
+  - ${DOCKER_RUN} ${CI_QMAKE} --version
+
+
+script:
+  # Note, redacted --openssl=/usr/local/Cellar/openssl/1.0.2h_1/bin
+  - ${DOCKER_RUN} ${CI_PY} pyside-setup/setup.py bdist_wheel --ignore-git --standalone --no-examples --qmake=${CI_QMAKE} --cmake=${CI_CMAKE} --jobs=3
+
+
+# before_cache:
+#   - ...
+
+
+after_success:
+  - ls -alh
+
+
+after_failure:
+  - ls -alh
+
+
+# before_deploy:
+
+
+deploy:
+  provider: releases
+  api_key:
+    secure: rqsK7jzh1pS2cJkrYzrDqhvliYJZ1kQjSImugyyBTMJ4L25P0p3++RgdHYW0nxq6RKwasMVZdsH1kQUQZv78at3DhrneN1B8K/aXMJ6C7ItJ4aAxKQPjkJEgS4rXppQcyxdLM6Kiie9xNxhuQsRaxH6XwPLZUz3T1ip5aaYceNPQphUbPDYnfdUv2rvXRzJHZXVGzzTPFfoYLXUWgVwLcooEr9zcxLvHxOYfLLNlcoPx6juQ1xz+P8ASArEgxVFfxemUnG4hfILpvfXFahYPFbvJyCOETd7TYK4Q6veVzyxhBbPA2ivAA4FXTrXh4qN6OqyS3cfR28e/oFJAi9BcGtfffUTdwX1gDvqUdCWMpO2wjyW9GNSXihiPDTxDvHJLPFO5n0SUIUqaC/DB4lcjcuOrZCWzc79HidgSUQLw4rQgobkF4qKVOAeEr00D/h0iURzTr8ngK1LtDlmWlJzL5briCBt37qr34+M01DHKBloChsK6C/SDp8oZiircr8SyR4bhGRA+CQCLimEcWvAi5MgL5b4ZtJmuINDaXC9yF20g5gTvDX2qQL25EiHR1xEstD9VAcaQv79y98PRBMLL5wL+bHAxLd++0nRHRlEJJJssP2313ABGbzl9iS9K2smL4mWN/OS0vrFOAaRiubyR6CdZzbfIZTW0rD6tTv2JLT8=
+  file_glob: true
+  file: "pyside-setup/dist/*.whl"
+  overwrite: true
+  skip_cleanup: true
+  on:
+    repo: fredrikaverpil/pyside2-linux
+    tags: true
+
+
+# after_deploy:
+# after_script:
