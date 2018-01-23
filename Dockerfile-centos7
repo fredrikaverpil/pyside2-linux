@@ -44,6 +44,6 @@ RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebu
 ENV LLVM_INSTALL_DIR="/root/libclang_release_39/libclang"
 
 # Pip requirements
-RUN /usr/bin/pip install wheel && \
-    /usr/bin/pip3.5 install wheel && \
-    /usr/bin/pip3.6 install wheel
+RUN /usr/bin/pip install -U pip wheel && \
+    /usr/bin/pip3.5 install -U pip wheel && \
+    /usr/bin/pip3.6 install -U pip wheel
