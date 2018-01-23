@@ -99,6 +99,9 @@ before_script:
   # Show which commit is being used
   - git --git-dir pyside-setup/.git log -n 1
 
+  # Show docker image info
+  - docker images
+
   # Summary
   - git --version
   - ${DOCKER_RUN} ${CI_PY} --version
