@@ -41,7 +41,7 @@ RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3
 RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_39-linux-Rhel7.2-gcc5.3-x86_64.7z && \
     7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
     rm -rf /tmp/libclang.7z
-ENV LLVM_INSTALL_DIR="${HOME}/libclang_release_39/libclang"
+ENV LLVM_INSTALL_DIR="/root/libclang_release_39/libclang"
 
 # Pip requirements
 RUN /usr/bin/pip install wheel && \
