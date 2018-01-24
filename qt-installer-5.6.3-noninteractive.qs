@@ -28,23 +28,23 @@ Controller.prototype.TargetDirectoryPageCallback = function()
 Controller.prototype.ComponentSelectionPageCallback = function() {
     var widget = gui.currentPageWidget();
 
-    // widget.selectAll();
-    widget.deselectAll();
+    widget.selectAll();
+    // widget.deselectAll();
 
-    widget.selectComponent("qt.563.gcc_64")
-    // widget.selectComponent("qt.563.doc")
-    // widget.selectComponent("qt.563.examples")
-    widget.selectComponent("qt.563.qt3d")
-    widget.selectComponent("qt.563.qtcanvas3d")
-    widget.selectComponent("qt.563.qtlocation")
-    widget.selectComponent("qt.563.qtquickcontrols")
-    widget.selectComponent("qt.563.qtquickcontrols2")
-    widget.selectComponent("qt.563.qtscript")
-    widget.selectComponent("qt.563.qtserialbus")
-    widget.selectComponent("qt.563.qtwebengine")
-    widget.selectComponent("qt.563.qtwebview")
-    // widget.selectComponent("qt.563.src")
-    widget.selectComponent("qt.tools.qtcreator")
+    // widget.selectComponent("qt.563.gcc_64")
+    // // widget.selectComponent("qt.563.doc")
+    // // widget.selectComponent("qt.563.examples")
+    // widget.selectComponent("qt.563.qt3d")
+    // widget.selectComponent("qt.563.qtcanvas3d")
+    // widget.selectComponent("qt.563.qtlocation")
+    // widget.selectComponent("qt.563.qtquickcontrols")
+    // widget.selectComponent("qt.563.qtquickcontrols2")
+    // widget.selectComponent("qt.563.qtscript")
+    // widget.selectComponent("qt.563.qtserialbus")
+    // widget.selectComponent("qt.563.qtwebengine")
+    // widget.selectComponent("qt.563.qtwebview")
+    // // widget.selectComponent("qt.563.src")
+    // widget.selectComponent("qt.tools.qtcreator")
 
     gui.clickButton(buttons.NextButton);
 }

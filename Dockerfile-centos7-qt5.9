@@ -6,7 +6,6 @@ FROM centos:7
 RUN yum install -y epel-release && \
     yum install -y deltarpm && \
     yum groupinstall "Development Tools" -y && \
-    yum install -y clang && \
     yum install -y mesa-libGL-devel && \
     yum install -y fontconfig freetype freetype-devel fontconfig-devel libstdc++ && \
     yum install -y python-libs python-devel python-pip && \
@@ -18,18 +17,8 @@ RUN yum install -y epel-release && \
 
 WORKDIR /workdir
 
-# Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
-ENV CC="/usr/bin/clang"
-ENV CXX="/usr/bin/clang++"
 
-ADD qt-installer-5.6.3-noninteractive.qs /tmp
 ADD qt-installer-5.9.3-noninteractive.qs /tmp
-
-# Qt 5.6
-RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.6/5.6.3/qt-opensource-linux-x64-5.6.3.run && \
-    chmod +x /tmp/*.run && \
-    /tmp/qt-installer.run --script /tmp/qt-installer-5.6.3-noninteractive.qs -platform minimal && \
-    rm -rf /tmp/qt-installer.run
 
 # Qt 5.9
 RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3/qt-opensource-linux-x64-5.9.3.run && \
@@ -38,12 +27,32 @@ RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3
     rm -rf /tmp/qt-installer.run
 
 # Libclang (Qt 5.9 only)
-RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_39-linux-Rhel7.2-gcc5.3-x86_64.7z && \
-    7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
+# RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_39-linux-Rhel7.2-gcc5.3-x86_64.7z && \
+#     7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
+#     rm -rf /tmp/libclang.7z
+# ENV CLANG_INSTALL_DIR="/root/libclang_release_39/libclang"
+RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_50-linux-Rhel7.2-gcc5.3-x86_64.7z && \
+    7za x /tmp/libclang.7z -o${HOME}/libclang_release_50 && \
     rm -rf /tmp/libclang.7z
-ENV CLANG_INSTALL_DIR="/root/libclang_release_39/libclang"
+ENV CLANG_INSTALL_DIR="/root/libclang_release_50/libclang"
+
 
 # Pip requirements
 RUN /usr/bin/pip install -U pip wheel && \
     /usr/bin/pip3.5 install -U pip wheel && \
     /usr/bin/pip3.6 install -U pip wheel
+
+# # Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
+# ENV CC="/root/libclang_release_50/libclang/bin/clang"
+# ENV CXX="/root/libclang_release_50/libclang/bin/clang++"
+
+
+
+RUN yum install -y llvm llvm-devel clang clang-devel
+
+# Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
+ENV CC="/usr/bin/clang"
+ENV CXX="/usr/bin/clang++"
+
+
+# ENV CXXFLAGS=-std=c++11
