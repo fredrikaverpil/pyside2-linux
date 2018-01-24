@@ -29,6 +29,10 @@ Controller.prototype.ComponentSelectionPageCallback = function() {
     var widget = gui.currentPageWidget();
 
     widget.selectAll();
+
+    // qtcharts generated error at 99% build...
+    widget.deselectComponent("qt.593.qtcharts")
+
     // widget.deselectAll();
 
     // widget.selectComponent("qt.593.gcc_64")
