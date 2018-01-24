@@ -109,8 +109,8 @@ before_script:
   - docker images
 
   # Show LLVM_INSTALL_DIR and $CLANG_INSTALL_DIR values
-  - echo $LLVM_INSTALL_DIR
-  - echo $CLANG_INSTALL_DIR
+  - ${DOCKER_RUN} echo $LLVM_INSTALL_DIR
+  - ${DOCKER_RUN} echo $CLANG_INSTALL_DIR
 
   # Summary
   - git --version
