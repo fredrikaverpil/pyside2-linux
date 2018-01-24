@@ -122,7 +122,7 @@ before_script:
 
 
 script:
-  - ${DOCKER_RUN} ${CI_PY} pyside-setup/setup.py bdist_wheel --ignore-git --standalone --no-examples --qmake=${CI_QMAKE} --cmake=${CI_CMAKE} --opensl=${CI_OPENSSL} --jobs=3
+  - ${DOCKER_RUN} ${CI_PY} pyside-setup/setup.py bdist_wheel --ignore-git --standalone --no-examples --qmake=${CI_QMAKE} --cmake=${CI_CMAKE} --openssl=${CI_OPENSSL} --jobs=3
 
 
 # before_cache:
