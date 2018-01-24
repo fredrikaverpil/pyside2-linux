@@ -31,10 +31,10 @@ RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3
 #     7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
 #     rm -rf /tmp/libclang.7z
 # ENV CLANG_INSTALL_DIR="/root/libclang_release_39/libclang"
-RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_50-linux-Rhel7.2-gcc5.3-x86_64.7z && \
-    7za x /tmp/libclang.7z -o${HOME}/libclang_release_50 && \
+RUN curl -L -o /tmp/libclang.7z http://download.qt.io/development_releases/prebuilt/libclang/libclang-release_39-linux-Rhel7.2-gcc5.3-x86_64.7z && \
+    7za x /tmp/libclang.7z -o${HOME}/libclang_release_39 && \
     rm -rf /tmp/libclang.7z
-ENV CLANG_INSTALL_DIR="/root/libclang_release_50/libclang"
+ENV CLANG_INSTALL_DIR="/root/libclang_release_39/libclang"
 
 
 # Pip requirements
@@ -48,8 +48,8 @@ RUN yum install -y llvm llvm-devel
 # # Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
 # ENV CC="/usr/bin/clang"
 # ENV CXX="/usr/bin/clang++"
-ENV CC="/root/libclang_release_50/libclang/bin/clang"
-ENV CXX="/root/libclang_release_50/libclang/bin/clang++"
+ENV CC="/root/libclang_release_39/libclang/bin/clang"
+ENV CXX="/root/libclang_release_39/libclang/bin/clang++"
 
 # Debug/test
 # ENV CXXFLAGS=-std=c++11
