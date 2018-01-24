@@ -108,15 +108,13 @@ before_script:
   # Show docker image info
   - docker images
 
-  # Show LLVM_INSTALL_DIR and $CLANG_INSTALL_DIR values
-  - ${DOCKER_RUN} echo $LLVM_INSTALL_DIR
+  # Show $CLANG_INSTALL_DIR value
   - ${DOCKER_RUN} echo $CLANG_INSTALL_DIR
 
   # Summary
   - git --version
   - ${DOCKER_RUN} ${CI_PY} --version
   - ${DOCKER_RUN} ${CI_CMAKE} --version
-  - ${DOCKER_RUN} clang --version
   - ${DOCKER_RUN} ${CI_QMAKE} --version
   - ${DOCKER_RUN} ${CI_OPENSSL} version
 

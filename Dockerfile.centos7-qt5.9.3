@@ -38,21 +38,18 @@ ENV CLANG_INSTALL_DIR="/root/libclang_release_50/libclang"
 
 
 # Pip requirements
-RUN /usr/bin/pip install -U pip wheel && \
+RUN /usr/bin/pip install -U pip wheel six && \
     /usr/bin/pip3.5 install -U pip wheel && \
     /usr/bin/pip3.6 install -U pip wheel
 
+# RUN yum install -y llvm llvm-devel clang clang-devel
+RUN yum install -y llvm llvm-devel
+
 # # Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
+# ENV CC="/usr/bin/clang"
+# ENV CXX="/usr/bin/clang++"
 # ENV CC="/root/libclang_release_50/libclang/bin/clang"
 # ENV CXX="/root/libclang_release_50/libclang/bin/clang++"
 
-
-
-RUN yum install -y llvm llvm-devel clang clang-devel
-
-# Clang environment variables in accordance with https://wiki.qt.io/PySide2_GettingStarted
-ENV CC="/usr/bin/clang"
-ENV CXX="/usr/bin/clang++"
-
-
+# Debug/test
 # ENV CXXFLAGS=-std=c++11
