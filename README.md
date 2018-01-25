@@ -17,7 +17,7 @@
 
 ## Download the standalone wheels
 
-[Releases](https://github.com/fredrikaverpil/pyside2-windows/releases) contain built PySide2 wheels.
+[Releases](https://github.com/fredrikaverpil/pyside2-linux/releases) contain built PySide2 wheels.
 
 <br><br>
 
