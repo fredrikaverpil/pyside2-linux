@@ -83,6 +83,8 @@ git push origin 2018.01.01  # cancels previous build, starts new build and gener
 > building on centos 7 for qt5.9 should be fine, because the lowest linux distro qt5.9 build is done on rhel 7
 > for 5.6 it's rhel 6.6 though
 
+> ..I would stick to using the compiler that was used for compiling qt itself.
+
 Github issues:
 - Trigger Dockerhub build on Dockerfile change: https://github.com/docker/hub-feedback/issues/403
 - For Circle CI, Github token insecure (?) for ghr: https://github.com/tcnksm/ghr/issues/76
