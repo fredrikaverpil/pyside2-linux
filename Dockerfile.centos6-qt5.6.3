@@ -20,8 +20,8 @@ RUN yum install -y deltarpm && \
 
 WORKDIR /workdir
 
-ENV CC="/usr/bin/clang"
-ENV CXX="/usr/bin/clang++"
+ENV CC="/usr/bin/gcc"
+ENV CXX="/usr/bin/g++"
 
 ADD qt-installer-5.6.3-noninteractive.qs /tmp
 
