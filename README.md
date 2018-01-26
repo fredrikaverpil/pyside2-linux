@@ -41,16 +41,21 @@ Note: PRs attempting to fix upstream fixes will not be accepted. Please send you
 
 ### Dockerhub setup
 
-Dockerhub will build a Docker image on manual trigger, which will result in a container image equipped with all requirements in order to build PySide2. This involves Python, Qt, clang, cmake, libclang etc.
+The Dockerfiles, when built, will result in containers equipped with all requirements in order to build PySide2. This involves Python, Qt, gcc, libclang etc.
 
 The docker images serve as a cache of sorts, and makes the CI wheel building process much faster.
 
+CentOS 6.6 and 7.x are used for PySide2-5.6 and PySide2-5.9 respectively, because the lowest Linux distro Qt builds are as follows:
+- Qt 5.6: RHEL 6.6
+- Qt 5.9: RHEL 7.x
+
+The Qt binaries in the Docker containers are precompiled with gcc. Therefore, gcc is also being used to build PySide2.
 
 <br><br>
 
 ### Travis CI setup
 
-A build matrix is set up which will create jobs for each PySide2 wheel build. For each build, the Docker image is pulled down and then used to initiate the build.
+A build matrix is set up which will create jobs for each PySide2 wheel build. For each build, the Docker image is pulled down and then runned to build PySide2.
 
 <br><br>
 
@@ -61,30 +66,7 @@ Manual tagging causes a Github release to be created through CI deploy. PySide2 
 
 ```bash
 git commit -am "Commit all changes..."
-git push  # triggers an AppVeyor build
+git push  # triggers a build
 git tag 2018.01.01
 git push origin 2018.01.01  # cancels previous build, starts new build and generates release
 ```
-
-
-<br><br>
-
-
-## Temporary notes
-
-> regarding anylinux, if you mean within the same minor python version, then the packages will only work on systems that have the same version requirements of standard packages or higher. So when building pyside, the older the distro the better. I suspect that building on ubuntu, and then using on centos might not work, because package versions are usually lower on centos
->
-> anylinux -> manylinux
->
-> this is on condition that the python minor versions are the same across the distros (aka, pyside built on centos, python 3.4, will only work on ubuntu python 3.4, and not ubuntu python 3.5)
->
-> or rather it might work, but don't be surprised if you ever get undefined behavior
-
-> building on centos 7 for qt5.9 should be fine, because the lowest linux distro qt5.9 build is done on rhel 7
-> for 5.6 it's rhel 6.6 though
-
-> ..I would stick to using the compiler that was used for compiling qt itself.
-
-Github issues:
-- Trigger Dockerhub build on Dockerfile change: https://github.com/docker/hub-feedback/issues/403
-- For Circle CI, Github token insecure (?) for ghr: https://github.com/tcnksm/ghr/issues/76
