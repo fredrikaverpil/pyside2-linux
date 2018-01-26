@@ -57,6 +57,10 @@ The Qt binaries in the Docker containers are precompiled with gcc. Therefore, gc
 
 A build matrix is set up which will create jobs for each PySide2 wheel build. For each build, the Docker image is pulled down and then runned to build PySide2.
 
+If a `git tag` initiated the build, a Github release is peformed. All built wheels are deployed and attached to the Github release.
+
+Job auto cancellation is enabled for this project in Travis CI, which means that queued up jobs are cancelled if a new job is initiated within the same branch.
+
 <br><br>
 
 
