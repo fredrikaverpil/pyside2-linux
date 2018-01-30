@@ -18,12 +18,16 @@ RUN yum install -y deltarpm && \
     yum --enablerepo=ius-archive install -y python36u-libs python36u-devel python36u-pip && \
     yum install -y libxslt libxml2 libxml2-devel libxslt-devel cmake3 openssl && \
     yum erase -y git && \
+    yum --enablerepo=ius-archive install -y git2u && \
     yum install -y which curl p7zip
 
 
 WORKDIR /workdir
 
-
+# Pip requirements
+RUN /usr/bin/pip install -U pip wheel && \
+    /usr/bin/pip3.5 install -U pip wheel && \
+    /usr/bin/pip3.6 install -U pip wheel
 
 # Activate devtoolset-6 gcc 6.3.1
 RUN source /opt/rh/devtoolset-6/enable
