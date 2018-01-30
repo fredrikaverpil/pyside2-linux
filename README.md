@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/fredrikaverpil/pyside2-linux.svg?branch=master)](https://travis-ci.org/fredrikaverpil/pyside2-linux) [![Latest release](http://github-release-version.herokuapp.com/github/fredrikaverpil/pyside2-linux/release.svg?style=flat)](https://github.com/fredrikaverpil/pyside2-linux/releases/latest)
 
+Unoffical PySide2 standalone wheels for Linux.
 
-<br><br>
 
 ## Sister projects
 
@@ -12,29 +12,9 @@
 - [pyside2-windows](https://github.com/fredrikaverpil/pyside2-windows)
 
 
-<br><br>
-
-
 ## Download the standalone wheels
 
 [Releases](https://github.com/fredrikaverpil/pyside2-linux/releases) contain built PySide2 wheels.
-
-<br><br>
-
-
-## Known issues
-
-### Build issues
-
-None.
-
-### Upstream issues
-
-All upstream issues should be reported in the [official PySide issue tracker](https://bugreports.qt.io/projects/PYSIDE/issues).
-
-Note: PRs attempting to fix upstream fixes will not be accepted. Please send your PR upstream instead.
-
-<br><br>
 
 
 ## How does this work?
@@ -51,7 +31,6 @@ CentOS 6.6 and 7.x are used for PySide2-5.6 and PySide2-5.9 respectively, becaus
 
 The Qt binaries in the Docker containers are precompiled with gcc. Therefore, gcc is also being used to build PySide2.
 
-<br><br>
 
 ### Travis CI setup
 
@@ -60,8 +39,6 @@ A build matrix is set up which will create jobs for each PySide2 wheel build. Fo
 If a `git tag` initiated the build, a Github release is peformed. All built wheels are deployed and attached to the Github release.
 
 Job auto cancellation is enabled for this project in Travis CI, which means that queued up jobs are cancelled if a new job is initiated within the same branch.
-
-<br><br>
 
 
 ### Tagging creates a new relese
@@ -76,7 +53,16 @@ git push origin 2018.01.01  # cancels previous build, starts new build and gener
 ```
 
 
-<br><br>
+### A note on Upstream issues
+
+All upstream issues should be reported in the [official PySide issue tracker](https://bugreports.qt.io/projects/PYSIDE/issues).
+
+Note: PRs attempting to fix upstream fixes will not be accepted. Please send your PR upstream instead.
+
+
+### Ask questions in the PySide/PySide2 gitter
+
+If you have any general questions, please check out the [PySide2 Gitter community](https://gitter.im/PySide/pyside2). If you prefer IRC, check out `#qt-pyside` on irc.freenode.net.
 
 
 ### Useful links
