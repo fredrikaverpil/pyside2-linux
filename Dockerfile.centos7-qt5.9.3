@@ -48,9 +48,9 @@ ENV CLANG_INSTALL_DIR="/root/libclang_release_50/libclang"
 
 
 # Pip requirements
-RUN /usr/bin/pip install --upgrade pip wheel && \
-    /usr/bin/pip3.5 install --upgrade pip wheel && \
-    /usr/bin/pip3.6 install --upgrade pip wheel
+RUN /usr/bin/pip install --upgrade pip setuptools wheel && \
+    /usr/bin/pip3.5 install --upgrade pip setuptools wheel && \
+    /usr/bin/pip3.6 install --upgrade pip setuptools wheel
 
 # Increase verbosity
 # ENV QT_LOGGING_RULES=qt.shiboken.debug=true
