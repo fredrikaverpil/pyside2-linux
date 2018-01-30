@@ -53,7 +53,6 @@ matrix:
         - CI_PY=/usr/bin/python
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
-        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -68,7 +67,6 @@ matrix:
         - CI_PY=/usr/bin/python3.5
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
-        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -83,7 +81,6 @@ matrix:
         - CI_PY=/usr/bin/python3.6
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
-        - CI_OPENSSL=/usr/bin/openssl
         - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
@@ -116,11 +113,10 @@ before_script:
   - ${DOCKER_RUN} ${CI_PY} --version
   - ${DOCKER_RUN} ${CI_CMAKE} --version
   - ${DOCKER_RUN} ${CI_QMAKE} --version
-  - ${DOCKER_RUN} ${CI_OPENSSL} version
 
 
 script:
-  - ${DOCKER_RUN} ${CI_PY} pyside-setup/setup.py bdist_wheel --ignore-git --standalone --no-examples --qmake=${CI_QMAKE} --cmake=${CI_CMAKE} --openssl=${CI_OPENSSL} --jobs=3
+  - ${DOCKER_RUN} ${CI_PY} pyside-setup/setup.py bdist_wheel --ignore-git --standalone --no-examples --qmake=${CI_QMAKE} --cmake=${CI_CMAKE} --jobs=3
 
 
 # before_cache:
