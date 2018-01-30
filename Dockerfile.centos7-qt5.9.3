@@ -17,7 +17,7 @@ RUN yum install -y deltarpm && \
     yum --enablerepo=ius-archive install -y python35u-libs python35u-devel python35u-pip && \
     yum --enablerepo=ius-archive install -y python36u-libs python36u-devel python36u-pip && \
     yum install -y libxslt libxml2 libxml2-devel libxslt-devel cmake3 openssl && \
-    yum install -y which curl p7zip
+    yum install -y which curl p7zip git
 
 
 WORKDIR /workdir
