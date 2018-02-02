@@ -32,19 +32,19 @@ Controller.prototype.ComponentSelectionPageCallback = function() {
 
     // widget.deselectAll();
 
-    // widget.selectComponent("qt.593.gcc_64")
-    // // widget.selectComponent("qt.593.doc")
-    // // widget.selectComponent("qt.593.examples")
-    // widget.selectComponent("qt.593.qtcharts.gcc_64")
-    // widget.selectComponent("qt.593.qtdatavis3d.gcc_64")
-    // widget.selectComponent("qt.593.qtnetworkauth.gcc_64")
-    // widget.selectComponent("qt.593.qtpurchasing.gcc_64")
-    // widget.selectComponent("qt.593.qtremoteobjects.gcc_64")
-    // widget.selectComponent("qt.593.qtscript")
-    // widget.selectComponent("qt.593.qtspeech.gcc_64")
-    // widget.selectComponent("qt.593.qtvirtualkeyboard.gcc_64")
-    // widget.selectComponent("qt.593.qtwebengine.gcc_64")
-    // // widget.selectComponent("qt.593.src")
+    // widget.selectComponent("qt.594.gcc_64")
+    // // widget.selectComponent("qt.594.doc")
+    // // widget.selectComponent("qt.594.examples")
+    // widget.selectComponent("qt.594.qtcharts.gcc_64")
+    // widget.selectComponent("qt.594.qtdatavis3d.gcc_64")
+    // widget.selectComponent("qt.594.qtnetworkauth.gcc_64")
+    // widget.selectComponent("qt.594.qtpurchasing.gcc_64")
+    // widget.selectComponent("qt.594.qtremoteobjects.gcc_64")
+    // widget.selectComponent("qt.594.qtscript")
+    // widget.selectComponent("qt.594.qtspeech.gcc_64")
+    // widget.selectComponent("qt.594.qtvirtualkeyboard.gcc_64")
+    // widget.selectComponent("qt.594.qtwebengine.gcc_64")
+    // // widget.selectComponent("qt.594.src")
     // widget.selectComponent("qt.tools.qtcreator")
 
     gui.clickButton(buttons.NextButton);
