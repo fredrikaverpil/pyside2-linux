@@ -1,6 +1,6 @@
 # pyside2-linux
 
-[![Build Status](https://travis-ci.org/fredrikaverpil/pyside2-linux.svg?branch=master)](https://travis-ci.org/fredrikaverpil/pyside2-linux) [![Latest release](http://github-release-version.herokuapp.com/github/fredrikaverpil/pyside2-linux/release.svg?style=flat)](https://github.com/fredrikaverpil/pyside2-linux/releases/latest)
+[![Build Status](https://travis-ci.org/fredrikaverpil/pyside2-linux.svg?branch=master)](https://travis-ci.org/fredrikaverpil/pyside2-linux) [![Latest release](https://github-release-version.herokuapp.com/github/fredrikaverpil/pyside2-macos/release.svg?style=flat)](https://github.com/fredrikaverpil/pyside2-macos/releases/latest)
 
 Unoffical PySide2 standalone wheels for Linux.
 
