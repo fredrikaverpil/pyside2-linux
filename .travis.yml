@@ -49,11 +49,11 @@ matrix:
     - env:
         - NAME="Python 2.7, Qt 5.9"
         - PYSIDE_BRANCH=5.9
-        - QT_VER=5.9.3
+        - QT_VER=5.9.4
         - CI_PY=/usr/bin/python
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
-        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.4
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
       dist: trusty
@@ -63,11 +63,11 @@ matrix:
     - env:
         - NAME="Python 3.5, Qt 5.9"
         - PYSIDE_BRANCH=5.9
-        - QT_VER=5.9.3
+        - QT_VER=5.9.4
         - CI_PY=/usr/bin/python3.5
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
-        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.4
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
       dist: trusty
@@ -77,11 +77,11 @@ matrix:
     - env:
         - NAME="Python 3.6, Qt 5.9"
         - PYSIDE_BRANCH=5.9
-        - QT_VER=5.9.3
+        - QT_VER=5.9.4
         - CI_PY=/usr/bin/python3.6
         - CI_CMAKE=/usr/bin/cmake3
         - CI_QMAKE=/root/Qt-$QT_VER/$QT_VER/gcc_64/bin/qmake
-        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.3
+        - DOCKER_IMAGE=fredrikaverpil/pyside2-linux:centos7-qt5.9.4
         - DOCKER_RUN="docker run --rm --interactive --tty -v $(pwd):/workdir ${DOCKER_IMAGE}"
       os: linux
       dist: trusty

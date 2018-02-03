@@ -33,10 +33,10 @@ ENV CXX=/opt/rh/devtoolset-6/root/usr/bin/g++
 
 
 # Qt 5.9
-ADD qt-installer-5.9.3-noninteractive.qs /tmp
-RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.3/qt-opensource-linux-x64-5.9.3.run && \
+ADD qt-installer-5.9.4-noninteractive.qs /tmp
+RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.9/5.9.4/qt-opensource-linux-x64-5.9.4.run && \
     chmod +x /tmp/*.run && \
-    /tmp/qt-installer.run --script /tmp/qt-installer-5.9.3-noninteractive.qs -platform minimal && \
+    /tmp/qt-installer.run --script /tmp/qt-installer-5.9.4-noninteractive.qs -platform minimal && \
     rm -rf /tmp/qt-installer.run
 
 
