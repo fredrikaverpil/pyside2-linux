@@ -101,6 +101,9 @@ install:
   - docker pull ${DOCKER_IMAGE}
   - git clone --recursive --branch ${PYSIDE_BRANCH} https://code.qt.io/pyside/pyside-setup.git
 
+  # https://codereview.qt-project.org/#/c/219648/
+  - if [ "$PYSIDE_BRANCH" == "5.6" ]; then cd pyside-setup && git fetch https://codereview.qt-project.org/pyside/pyside-setup refs/changes/48/219648/1 && git checkout FETCH_HEAD && cd .. ; fi
+
 
 before_script:
   # Show which commit is being used
@@ -129,10 +132,12 @@ script:
 
 after_success:
   - ls -alh
+  - ls -alh pyside-setup/dist
 
 
 after_failure:
   - ls -alh
+  - ls -alh pyside-setup/dist
 
 
 # before_deploy:
