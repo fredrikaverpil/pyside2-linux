@@ -132,10 +132,12 @@ script:
 
 after_success:
   - ls -alh
+  - ls -alh pyside-setup/dist
 
 
 after_failure:
   - ls -alh
+  - ls -alh pyside-setup/dist
 
 
 # before_deploy:
