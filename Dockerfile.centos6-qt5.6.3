@@ -34,6 +34,9 @@ RUN curl -L -o /tmp/qt-installer.run https://download.qt.io/archive/qt/5.6/5.6.3
     rm -rf /tmp/qt-installer.run
 
 # Pip requirements (Python 2.6 not supported)
-RUN /usr/bin/pip2.7 install --upgrade pip setuptools wheel && \
-    /usr/bin/pip3.5 install --upgrade pip setuptools wheel && \
-    /usr/bin/pip3.6 install --upgrade pip setuptools wheel
+RUN /usr/bin/pip2.7 install --upgrade pip && \
+    /usr/bin/pip3.5 install --upgrade pip && \
+    /usr/bin/pip3.6 install --upgrade pip && \
+    /usr/bin/pip2.7 install --upgrade setuptools wheel && \
+    /usr/bin/pip3.5 install --upgrade setuptools wheel && \
+    /usr/bin/pip3.6 install --upgrade setuptools wheel
