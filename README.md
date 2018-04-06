@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fredrikaverpil/pyside2-linux.svg?branch=master)](https://travis-ci.org/fredrikaverpil/pyside2-linux)
 
-Unoffical PySide2 standalone wheels for Linux.
+Unoffical PySide2 standalone wheels for Linux. _**Official**_ wheels [now available](http://lists.qt-project.org/pipermail/pyside/2018-March/002537.html)!
 
 
 ## Sister projects
